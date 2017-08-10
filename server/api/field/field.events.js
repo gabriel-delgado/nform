@@ -26,7 +26,7 @@ function registerEvents(Field) {
 
 function emitEvent(event) {
   return function(doc) {
-    FieldEvents.emit(event + ':' + doc._id, doc);
+    FieldEvents.emit(`${event} : ${doc._id}`, doc);
     FieldEvents.emit(event, doc);
   };
 }

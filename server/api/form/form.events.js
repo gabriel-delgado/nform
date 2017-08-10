@@ -26,7 +26,7 @@ function registerEvents(Form) {
 
 function emitEvent(event) {
   return function(doc) {
-    FormEvents.emit(event + ':' + doc._id, doc);
+    FormEvents.emit(`${event} : ${doc._id}`, doc);
     FormEvents.emit(event, doc);
   };
 }

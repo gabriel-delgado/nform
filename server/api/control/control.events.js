@@ -26,7 +26,7 @@ function registerEvents(Control) {
 
 function emitEvent(event) {
   return function(doc) {
-    ControlEvents.emit(event + ':' + doc._id, doc);
+    ControlEvents.emit(`${event} : ${doc._id}`, doc);
     ControlEvents.emit(event, doc);
   };
 }

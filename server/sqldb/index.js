@@ -4,7 +4,7 @@
 
 'use strict';
 
-import path from 'path';
+// import path from 'path';
 import config from '../config/environment';
 import Sequelize from 'sequelize';
 
