@@ -1,0 +1,60 @@
+<div class="container">
+
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>
+          <input type="checkbox">
+        </th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Fields</th>
+        <th>Controls</th>
+        <th>Behaviors</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="form in $ctrl.forms">
+        <td>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox">
+            </label>
+          </div>
+        </td>
+        <td>{{form._id}}</td>
+        <td>{{form.name}}</td>
+        <td>{{form.fields}}</td>
+        <td>{{form.controls}}</td>
+        <td>{{form.behaviors}}</td>
+        <td>{{form.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="disabled">
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li>
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <button type="button" class="btn btn-primary">New
+    &nbsp;<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </button>
+  <button type="button" class="btn btn-danger">Delete
+    &nbsp;<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+  </button>
+</div>
