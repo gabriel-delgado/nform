@@ -10,6 +10,9 @@ export class NavbarComponent {
   }, {
     title: 'Form',
     state: 'forms'
+  }, {
+    title: 'Action',
+    state: 'actions'
   }];
 
   isCollapsed = true;
