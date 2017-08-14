@@ -9,19 +9,16 @@ export class ActionsComponent {
   /*@ngInject*/
   constructor($http) {
     this.$http = $http;
-    this.message = 'Hello';
-    this.columns = ['Id', 'Name', 'Parameters', 'Result', 'Description'];
   }
 
-  $onInit () {
+  $onInit() {
     this.loadActions();
   }
 
-  loadActions () {
+  loadActions() {
     this.$http.get('/api/actions')
-      .then((response) => {
+      .then(response => {
         this.items = response.data;
-        console.log('ITEMS', this.items);
       });
   }
 }

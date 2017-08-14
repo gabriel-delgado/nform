@@ -11,11 +11,11 @@ export class FormsComponent {
     this.$http = $http;
   }
 
-  $onInit () {
+  $onInit() {
     this.$http.get('/api/forms')
-      .then((response) => {
+      .then(response => {
         this.forms = response.data;
-    });
+      });
   }
 }
 

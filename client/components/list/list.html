@@ -4,21 +4,24 @@
     <thead>
       <tr>
         <th>
-          <input type="checkbox">
+          <input type="checkbox" ng-click="$ctrl.selectItems($event)">
         </th>
         <th ng-repeat="column in $ctrl.columns">{{column}}</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="item in $ctrl.items">
+      <tr ng-repeat="item in $ctrl.items" ng-class="{'info': item.selected}">
         <td>
           <div class="checkbox">
             <label>
-              <input type="checkbox">
+              <input type="checkbox" ng-model="item.selected">
             </label>
           </div>
         </td>
-        <td ng-repeat="value in item">{{value}}</td>
+        <td ng-repeat="(key, value) in item" ng-if="key.indexOf('__') === -1">
+          <json-formatter ng-if="$ctrl.isObject(value)" json="value" open="1"></json-formatter>
+          <span ng-if="$ctrl.isString(value)">{{value}}</span>
+        </td>
       </tr>
     </tbody>
   </table>

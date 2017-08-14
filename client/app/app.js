@@ -33,7 +33,7 @@ import './app.less';
 
 angular.module('nformApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
   uiBootstrap, _Auth, account, admin, 'validation.match', navbar, footer, main, constants,
-  socket, util, FormsComponent, ActionsComponent, listComponent
+  socket, util, FormsComponent, ActionsComponent, listComponent, 'jsonFormatter'
 ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {

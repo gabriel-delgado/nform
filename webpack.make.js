@@ -51,7 +51,8 @@ module.exports = function makeWebpackConfig(options) {
                 'angular-socket-io',
                 'angular-ui-bootstrap',
                 'angular-ui-router',
-                'lodash'
+                'lodash',
+                'jsonformatter'
             ]
         };
     }
@@ -135,7 +136,8 @@ module.exports = function makeWebpackConfig(options) {
             loader: 'babel',
             include: [
                 path.resolve(__dirname, 'client/'),
-                path.resolve(__dirname, 'node_modules/lodash-es/')
+                path.resolve(__dirname, 'node_modules/lodash-es/'),
+                path.resolve(__dirname, 'node_modules/jsonformatter/dist/')
             ]
         }, {
             // TS LOADER
