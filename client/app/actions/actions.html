@@ -1,2 +1,39 @@
-
 <list items="$ctrl.items"></list>
+
+<div class="container" ng-if="!$ctrl.isVisible">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Function</h3>
+    </div>
+    <div class="panel-body">
+      <form ng-submit="$ctrl.submit()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Function name">
+        </div>
+        <div class="form-group">
+          <label for="">Parameters</label>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Parameter name">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-success" ng-click="$ctrl.addParameter()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div>
+          <select multiple class="form-control">
+            <option ng-repeat="parameter in $ctrl.parameters">{{parameter.name}}</option>
+          </select>
+          <button type="button" class="btn btn-danger">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Description</label>
+          <textarea class="form-control" id="description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
