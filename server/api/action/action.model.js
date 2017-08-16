@@ -4,7 +4,8 @@ import mongoose from 'mongoose';
 import {registerEvents} from './action.events';
 
 var ActionSchema = new mongoose.Schema({
-  function: {name: String, parameters: [String], result: String},
+  name: String,
+  code: String,
   description: String
 });
 

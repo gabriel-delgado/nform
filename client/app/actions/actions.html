@@ -1,6 +1,12 @@
-<list items="$ctrl.items"></list>
+<list items="$ctrl.items" on-click-new="$ctrl.displayNewForm()" ng-if="!$ctrl.isNewFormVisible"></list>
 
-<div class="container" ng-if="!$ctrl.isVisible">
+<div class="container" ng-if="$ctrl.isNewFormVisible">
+
+  <div ng-if="$ctrl.isVisibleMessage" class="alert alert-success  alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Well done!</strong> You successfully store the action data.
+  </div>
+
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Function</h3>
@@ -9,30 +15,19 @@
       <form ng-submit="$ctrl.submit()">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Function name">
+          <input type="text" required class="form-control" ng-model="$ctrl.name" id="name" placeholder="Action name">
         </div>
         <div class="form-group">
-          <label for="">Parameters</label>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Parameter name">
-            <span class="input-group-btn">
-              <button type="button" class="btn btn-success" ng-click="$ctrl.addParameter()">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              </button>
-            </span>
-          </div>
-          <select multiple class="form-control">
-            <option ng-repeat="parameter in $ctrl.parameters">{{parameter.name}}</option>
-          </select>
-          <button type="button" class="btn btn-danger">
-            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-          </button>
+          <label for="description">Description</label>
+          <textarea class="form-control" ng-model="$ctrl.description" id="description"></textarea>
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Description</label>
-          <textarea class="form-control" id="description"></textarea>
+          <label for="code">Code</label>
+          <textarea class="form-control" ng-model="$ctrl.code" rows="7" id="code"></textarea>
+          <div ace-editor="$ctrl.aceOptions" ng-model="$ctrl.code"></div>
         </div>
         <button type="submit" class="btn btn-primary btn-lg">Save</button>
+        <button type="button" class="btn btn-warning btn-lg" ng-click="$ctrl.cancel()">Cancel</button>
       </form>
     </div>
   </div>

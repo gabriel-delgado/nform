@@ -42,7 +42,8 @@ export default angular.module('nformApp.list', [])
   .component('list', {
     template: require('./list.html'),
     bindings: {
-      items: '<'
+      items: '<',
+      onClickNew: '&'
     },
     controller: listComponent
   })
