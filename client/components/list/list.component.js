@@ -1,11 +1,13 @@
 'use strict';
 const angular = require('angular');
 
+import Modal from '../modal/modal.service';
+
 export class listComponent {
   /*@ngInject*/
-  constructor() {
-    this.message = 'World';
+  constructor(Modal) {
     this.columns = [];
+    this.Modal = Modal;
   }
 
   getColumns(items) {
@@ -35,6 +37,19 @@ export class listComponent {
     angular.forEach(this.items, value => {
       value.selected = event.target.checked;
     });
+  }
+
+  open(size, parentSelector) {
+    let user = {name: 'gabriel'};
+    let text1 = 'text1';
+    let text2 = 'text2';
+    let text3 = 'text3';
+
+    let testDelete = this.Modal.confirm.delete( result => {
+      console.log('RESULT', result);
+    });
+
+    testDelete(text1, text2, text3);
   }
 }
 

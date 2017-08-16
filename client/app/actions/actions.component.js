@@ -15,7 +15,6 @@ export class ActionsComponent {
     this.loadActions();
     this.isNewFormVisible = false;
     this.isVisibleMessage = false;
-
   }
 
   loadActions() {
@@ -60,6 +59,10 @@ export class ActionsComponent {
     this.name = '';
     this.code = '';
     this.description = '';
+  }
+
+  deleteAction() {
+    // this.modal.deleteModal();
   }
 }
 
