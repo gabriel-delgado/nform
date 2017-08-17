@@ -15,6 +15,7 @@ export class ActionsComponent {
     this.loadActions();
     this.isNewFormVisible = false;
     this.isVisibleMessage = false;
+    this.message = '';
   }
 
   loadActions() {
@@ -52,6 +53,7 @@ export class ActionsComponent {
 
   successSubmit() {
     this.cleanFields();
+    this.message = 'You successfully store the action data.';
     this.displaySuccessMessage();
   }
 
@@ -62,7 +64,16 @@ export class ActionsComponent {
   }
 
   deleteAction() {
-    // this.modal.deleteModal();
+    angular.forEach(this.items, (value, key) => {
+      if (value.selected) {
+        this.$http.delete(`/api/actions/${value._id}`)
+          .then(response => {
+            console.log('Item deleted', response);
+            this.isVisibleMessage = true;
+            this.message = 'You successfully delete the action data.';
+          });
+      }
+    });
   }
 }
 

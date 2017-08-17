@@ -42,10 +42,10 @@ export class listComponent {
   openModal() {
 
     let testDelete = this.Modal.confirm.delete( result => {
-      console.log('RESULT', result);
+      // this.onDeleteItem();
     });
 
-    testDelete(this.name, 'OOK', 'CANCELLL');
+    testDelete(this.name, 'OOK');
   }
 }
 
@@ -53,8 +53,9 @@ export default angular.module('nformApp.list', [])
   .component('list', {
     template: require('./list.html'),
     bindings: {
-      items: '<',
+      items: '=',
       onClickNew: '&',
+      onDeleteItem: '&',
       name: '@'
     },
     controller: listComponent
