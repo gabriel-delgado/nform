@@ -39,17 +39,13 @@ export class listComponent {
     });
   }
 
-  open(size, parentSelector) {
-    let user = {name: 'gabriel'};
-    let text1 = 'text1';
-    let text2 = 'text2';
-    let text3 = 'text3';
+  openModal() {
 
     let testDelete = this.Modal.confirm.delete( result => {
       console.log('RESULT', result);
     });
 
-    testDelete(text1, text2, text3);
+    testDelete(this.name, 'OOK', 'CANCELLL');
   }
 }
 
@@ -58,7 +54,8 @@ export default angular.module('nformApp.list', [])
     template: require('./list.html'),
     bindings: {
       items: '<',
-      onClickNew: '&'
+      onClickNew: '&',
+      name: '@'
     },
     controller: listComponent
   })
