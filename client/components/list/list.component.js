@@ -3,9 +3,10 @@ const angular = require('angular');
 
 export class listComponent {
   /*@ngInject*/
-  constructor(Modal) {
+  constructor(Modal, $state) {
     this.columns = [];
     this.Modal = Modal;
+    this.$state = $state;
   }
 
   getColumns(items) {
@@ -43,6 +44,10 @@ export class listComponent {
     });
 
     testDelete(this.name, 'Ok');
+  }
+
+  editItem(data) {
+    this.$state.go('editAction', { id: data._id });
   }
 }
 

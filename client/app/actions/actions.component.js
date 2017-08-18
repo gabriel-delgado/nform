@@ -27,10 +27,12 @@ export class ActionsComponent {
 
   displayNewForm() {
     this.isNewFormVisible = true;
+    this.isVisibleMessage = false;
   }
 
   cancel() {
     this.isNewFormVisible = false;
+    this.isVisibleMessage = false;
   }
 
   submit() {
@@ -42,7 +44,7 @@ export class ActionsComponent {
 
     this.$http.post('/api/actions', data)
       .then(response => {
-        console.log('Actions stored', response);
+        console.log(response);
         this.successSubmit();
         this.loadActions();
       });
@@ -69,6 +71,7 @@ export class ActionsComponent {
       if(value.selected) {
         this.$http.delete(`/api/actions/${value._id}`)
           .then(response => {
+            console.log(response);
             this.isVisibleMessage = true;
             this.message = 'You successfully delete the action data.';
             this.loadActions();

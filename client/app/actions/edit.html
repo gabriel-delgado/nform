@@ -3,12 +3,10 @@
   <strong>Well done!</strong> {{$ctrl.message}}.
 </div>
 
-<list name="Action" items="$ctrl.items" on-click-new="$ctrl.displayNewForm()" on-delete-item="$ctrl.deleteAction()" ng-if="!$ctrl.isNewFormVisible"></list>
-
-<div class="container" ng-if="$ctrl.isNewFormVisible">
+<div class="container">
   <nav aria-label="...">
     <ul class="pager">
-      <li class="previous"><a href="javascript:void(0)" ng-click="$ctrl.cancel()"><span aria-hidden="true">&larr;</span> Back</a></li>
+      <li class="previous"><a ui-sref="actions"><span aria-hidden="true">&larr;</span> Back</a></li>
     </ul>
   </nav>
   <div class="panel panel-primary">
@@ -31,7 +29,7 @@
           <div ace-editor="$ctrl.aceOptions" ng-model="$ctrl.code"></div>
         </div>
         <button type="submit" class="btn btn-primary btn-lg">Save</button>
-        <button type="button" class="btn btn-warning btn-lg" ng-click="$ctrl.cancel()">Cancel</button>
+        <button type="button" class="btn btn-warning btn-lg" ui-sref="actions">Cancel</button>
       </form>
     </div>
   </div>
