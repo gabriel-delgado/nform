@@ -1,12 +1,16 @@
+<div ng-if="$ctrl.isVisibleMessage" class="container alert alert-success  alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Well done!</strong> {{$ctrl.message}}.
+</div>
+
 <list name="Action" items="$ctrl.items" on-click-new="$ctrl.displayNewForm()" on-delete-item="$ctrl.deleteAction()" ng-if="!$ctrl.isNewFormVisible"></list>
 
 <div class="container" ng-if="$ctrl.isNewFormVisible">
-
-  <div ng-if="$ctrl.isVisibleMessage" class="alert alert-success  alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>Well done!</strong> {{$ctrl.message}}.
-  </div>
-
+  <nav aria-label="...">
+    <ul class="pager">
+      <li class="previous"><a href="javascript:void(0)" ng-click="$ctrl.cancel()"><span aria-hidden="true">&larr;</span> Back</a></li>
+    </ul>
+  </nav>
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Function</h3>

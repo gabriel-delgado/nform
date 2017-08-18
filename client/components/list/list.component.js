@@ -1,8 +1,6 @@
 'use strict';
 const angular = require('angular');
 
-import Modal from '../modal/modal.service';
-
 export class listComponent {
   /*@ngInject*/
   constructor(Modal) {
@@ -39,13 +37,12 @@ export class listComponent {
     });
   }
 
-  openModal() {
-
-    let testDelete = this.Modal.confirm.delete( result => {
-      // this.onDeleteItem();
+  openDeleteModal() {
+    let testDelete = this.Modal.confirm.delete(() => {
+      this.onDeleteItem();
     });
 
-    testDelete(this.name, 'OOK');
+    testDelete(this.name, 'Ok');
   }
 }
 

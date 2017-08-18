@@ -44,6 +44,7 @@ export class ActionsComponent {
       .then(response => {
         console.log('Actions stored', response);
         this.successSubmit();
+        this.loadActions();
       });
   }
 
@@ -64,13 +65,13 @@ export class ActionsComponent {
   }
 
   deleteAction() {
-    angular.forEach(this.items, (value, key) => {
-      if (value.selected) {
+    angular.forEach(this.items, value => {
+      if(value.selected) {
         this.$http.delete(`/api/actions/${value._id}`)
           .then(response => {
-            console.log('Item deleted', response);
             this.isVisibleMessage = true;
             this.message = 'You successfully delete the action data.';
+            this.loadActions();
           });
       }
     });
